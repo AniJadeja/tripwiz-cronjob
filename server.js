@@ -24,7 +24,8 @@ setInterval(pingServer, 50000)
 
 const express = require("express");
 const app = express();
-
+const cors = require("cors")
+app.use(cors())
 const pingRoute = (req, res) => { 
     console.log("Ping request recevied..");
     res.status(200).send("cronjob server active..");
