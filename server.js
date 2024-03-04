@@ -1,7 +1,8 @@
 const pingServer = () => {
     fetch("https://trip-wiz-service.onrender.com/ping").then((res) => {
-        if (res.status == 200) console.log("Server Running..");
-        else console.log("Server not running..")
+        if (res.status == 200)
+          console.log("Sucess : Tripwiz server running.. ");
+        else console.log("ERROR !! : Tripwiz server not running..");
     });
 }
 
@@ -12,8 +13,8 @@ const express = require("express");
 const app = express();
 
 const pingRoute = (req, res) => { 
-res.status(200).send("pinging tripwiz...")
-
+    console.log("Ping request recevied..");
+    res.status(200).send("cronjob server active..");
 }
 app.use("/ping", pingRoute);
 
