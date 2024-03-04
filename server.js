@@ -1,4 +1,4 @@
-const pingServer = () => {
+const pingTripwizServer = () => {
     fetch("https://trip-wiz-service.onrender.com/ping").then((res) => {
         if (res.status == 200)
           console.log("Sucess : Tripwiz server running.. ");
@@ -6,8 +6,21 @@ const pingServer = () => {
     });
 }
 
+const pingCircleCronjob = () => {
+    let url = "https://circle-cronjob.onrender.com/ping";
+    fetch(url).then((res) => {
+      if (res.status == 200) console.log("Sucess : circle cronjob running.. ");
+      else console.log("ERROR !! : circle cronjobnot running..");
+    });
+}
 
-setInterval(pingServer, 10000)
+const pingServer = () => { 
+    pingCircleCronjob();
+    pingTripwizServer();
+}
+
+
+setInterval(pingServer, 50000)
 
 const express = require("express");
 const app = express();
