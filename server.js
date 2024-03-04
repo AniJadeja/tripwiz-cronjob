@@ -6,4 +6,4 @@ const pingServer = () => {
 }
 
 
-setInterval(pingServer, 10000)
+setInterval(pingServer, 2000)
