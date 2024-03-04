@@ -6,4 +6,19 @@ const pingServer = () => {
 }
 
 
-setInterval(pingServer, 2000)
+setInterval(pingServer, 10000)
+
+const express = require("express");
+const app = express();
+
+const pingRoute = (req, res) => { 
+res.status(200).send("pinging tripwiz...")
+
+}
+app.use("/ping", pingRoute);
+
+// Start the server
+app.listen(3000, () => {
+  console.clear();
+  console.log(`Server is running on port 3000`);
+});
